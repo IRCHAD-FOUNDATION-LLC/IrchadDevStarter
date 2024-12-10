@@ -14,14 +14,9 @@ jobs:
       - name: Init Dev Start Request
         env:
           AWS_DEV_LIFETIME_REQUEST: ${{ inputs.lifetime }}
-        run: |
-          AWS_DEV_START_REQUEST=$(date +'%Y-%m-%d %H:%M:%S')
-          AWS_DEV_END_REQUEST=$(date -d "$AWS_DEV_START_REQUEST $AWS_DEV_LIFETIME_REQUEST mins" +'%Y-%m-%d %H:%M:%S')
-          
-          echo AWS_DEV_START_REQUEST=\"$AWS_DEV_START_REQUEST\" > aws_dev_start_request.txt
-          echo AWS_DEV_LIFETIME_REQUEST=\"$AWS_DEV_LIFETIME_REQUEST\" >> aws_dev_start_request.txt
-          echo AWS_DEV_END_REQUEST=\"$AWS_DEV_END_REQUEST\" >> aws_dev_start_request.txt
-          
+        run: |       
+          echo AWS_DEV_START_REQUEST=\"$(date +'%Y-%m-%d %H:%M:%S')\" > aws_dev_start_request.txt
+          echo AWS_DEV_LIFETIME_REQUEST=\"$AWS_DEV_LIFETIME_REQUEST\" >> aws_dev_start_request.txt         
           cat aws_dev_start_request.txt
 
       - name: Upload Dev Start Request File
