@@ -7,11 +7,12 @@ on:
         description: Dev Env Lifetime (Hours)
         type: choice
         required: true
-        default: 1
+        default: '60'
         options: 
-        - 1
-        - 2
-        - 3
+        - 60
+        - 90
+        - 120
+        - 180
 
 jobs:
   start-request:
