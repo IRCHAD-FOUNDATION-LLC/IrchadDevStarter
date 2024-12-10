@@ -1,0 +1,31 @@
+name: Irchad Dev Start Request
+
+on:
+  workflow_call:
+    inputs:
+      lifetime:
+        type: number
+        required: true
+
+jobs:
+  start-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Init Dev Start Request
+        env:
+          AWS_DEV_LIFETIME_REQUEST: ${{ inputs.lifetime }}
+        run: |
+          AWS_DEV_START_REQUEST=$(date +'%Y-%m-%d %H:%M:%S')
+          AWS_DEV_END_REQUEST=$(date "$AWS_DEV_START_REQUEST $AWS_DEV_LIFETIME_REQUEST hours" +'%Y-%m-%d %H:%M:%S')
+          
+          echo AWS_DEV_START_REQUEST=\"$AWS_DEV_START_REQUEST\" > aws_dev_request.txt
+          echo AWS_DEV_LIFETIME_REQUEST=\"$AWS_DEV_LIFETIME_REQUEST\" >> aws_dev_request.txt
+          echo AWS_DEV_END_REQUEST=\"$AWS_DEV_END_REQUEST\" >> aws_dev_request.txt
+          
+          cat aws_dev_start_request.txt
+
+      - name: Upload Dev Start Request File
+        uses: actions/upload-artifact@v4
+        with:
+          name: aws-dev-start-request-artifact
+          path: aws_dev_start_request.txt
