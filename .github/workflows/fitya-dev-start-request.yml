@@ -17,4 +17,4 @@ jobs:
   start-request:
     uses: ./.github/workflows/irchad-dev-start-request.yml
     with:
-      lifetime: ${{ inputs.lifetime }}
+      lifetime: ${{ fromJSON(inputs.lifetime) }}
