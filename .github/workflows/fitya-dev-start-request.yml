@@ -8,7 +8,8 @@ on:
         type: choice
         required: true
         default: '60'
-        options: 
+        options:
+        - 15
         - 60
         - 90
         - 120
