@@ -18,9 +18,9 @@ jobs:
           AWS_DEV_START_REQUEST=$(date +'%Y-%m-%d %H:%M:%S')
           AWS_DEV_END_REQUEST=$(date -d "$AWS_DEV_START_REQUEST $AWS_DEV_LIFETIME_REQUEST hours" +'%Y-%m-%d %H:%M:%S')
           
-          echo AWS_DEV_START_REQUEST=\"$AWS_DEV_START_REQUEST\" > aws_dev_request.txt
-          echo AWS_DEV_LIFETIME_REQUEST=\"$AWS_DEV_LIFETIME_REQUEST\" >> aws_dev_request.txt
-          echo AWS_DEV_END_REQUEST=\"$AWS_DEV_END_REQUEST\" >> aws_dev_request.txt
+          echo AWS_DEV_START_REQUEST=\"$AWS_DEV_START_REQUEST\" > aws_dev_start_request.txt
+          echo AWS_DEV_LIFETIME_REQUEST=\"$AWS_DEV_LIFETIME_REQUEST\" >> aws_dev_start_request.txt
+          echo AWS_DEV_END_REQUEST=\"$AWS_DEV_END_REQUEST\" >> aws_dev_start_request.txt
           
           cat aws_dev_start_request.txt
 
