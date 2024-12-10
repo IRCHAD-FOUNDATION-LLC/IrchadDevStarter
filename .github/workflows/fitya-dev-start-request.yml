@@ -15,4 +15,4 @@ jobs:
   start-request:
     uses: ./.github/workflows/irchad-dev-start-request.yml
     with:
-      lifetime: 33
+      lifetime: ${{ github.event.inputs.lifetime }}
