@@ -4,12 +4,14 @@ on:
   workflow_dispatch:
     inputs:
       lifetime:
-        description: Dev Env Lifetime
+        description: Dev Env Lifetime (Hours)
         type: choice
+        required: true
+        default: 1
         options: 
-        - 60
-        - 120
-        - 180
+        - 1
+        - 2
+        - 3
 
 jobs:
   start-request:
