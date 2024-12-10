@@ -2,7 +2,19 @@ name: AlBaji Dev Start Request
 
 on:
   workflow_dispatch:
+    inputs:
+      lifetime:
+        description: Dev Env Lifetime (Hours)
+        type: choice
+        required: true
+        default: 1
+        options: 
+        - 1
+        - 2
+        - 3
 
 jobs:
   start-request:
     uses: ./.github/workflows/irchad-dev-start-request.yml
+    with:
+      lifetime: ${{ fromJSON(inputs.lifetime) }}
