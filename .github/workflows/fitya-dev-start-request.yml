@@ -2,7 +2,17 @@ name: Fitya Dev Start Request
 
 on:
   workflow_dispatch:
+    inputs:
+      lifetime:
+        type: choice
+        description: Dev Env Lifetime
+        options: 
+        - 60
+        - 120
+        - 180
 
 jobs:
   start-request:
     uses: ./.github/workflows/irchad-dev-start-request.yml
+    with:
+      lifetime: ${{ github.event.inputs.lifetime }}
