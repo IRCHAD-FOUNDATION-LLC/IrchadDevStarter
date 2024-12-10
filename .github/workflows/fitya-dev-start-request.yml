@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
     inputs:
       lifetime:
-        type: choice
         description: Dev Env Lifetime
+        type: choice
         options: 
         - 60
         - 120
