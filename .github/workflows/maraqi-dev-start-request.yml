@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       lifetime:
-        description: Dev Env Lifetime (Hours)
+        description: Dev Env Lifetime (Minutes)
         type: choice
         required: true
         default: '60'
